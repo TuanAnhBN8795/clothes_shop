@@ -11,6 +11,9 @@ const RowContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 15px 10px;
 `
 
 const SongName = styled.div`
@@ -18,24 +21,17 @@ const SongName = styled.div`
 `
 
 const ControlBtnGroup = styled.div`
-  margin-top: 1px;
+  margin-top: 2px;
 `
 
-const PlayBtn = styled.img`
+const ControlBtn = styled.img`
   width: 25px;
   cursor: pointer;
-`
-
-const PauseBtn = styled.img`
-  width: 25px;
-  cursor: pointer;
+  margin-left: 40px;
+  margin-right: 5px;
 `
 
 const ProgressBar = styled.div`
-  background-color: #dadada;
-  border-radius: 5px;
-  height: 23px;
-  padding: 0 10px;
   display: flex;
   align-items: center;
 `
@@ -76,8 +72,8 @@ const App = () => {
         <SongName>{audios[0].title}</SongName>
         <ControlBtnGroup onClick={handlePausePlayClick}>
           {isPlay
-            ? <PauseBtn src={pauseIconSrc} alt="pause icon" />
-            : <PlayBtn src={playIconSrc} alt="play icon"/>}
+            ? <ControlBtn src={pauseIconSrc} alt="pause icon" />
+            : <ControlBtn src={playIconSrc} alt="play icon"/>}
         </ControlBtnGroup>
         <ProgressBar>
           <TimeSlider
@@ -88,18 +84,18 @@ const App = () => {
             styles={{
               track: {
                 backgroundColor: "#e3e3e3",
-                height: "3px",
+                height: "4px",
                 cursor: "pointer"
               },
               active: {
-                backgroundColor: "#333",
-                height: "3px",
+                backgroundColor: "#F1C40F",
+                height: "4px",
               },
               thumb: {
                 marginTop: "-4px",
-                width: "10px",
-                height: "10px",
-                backgroundColor: "#333",
+                width: "12px",
+                height: "12px",
+                backgroundColor: "#F1C40F",
                 borderRadius: "50%",
                 cursor: "pointer",
               },
