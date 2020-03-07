@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import TimeSlider from "react-input-slider";
+import styled from 'styled-components/macro'
 
 import "./App.scss";
 import TetImg from "./images/tet.jpg";
@@ -8,6 +9,10 @@ import NextIcon from "./icons/NextIcon";
 import PauseIcon from "./icons/PauseIcon";
 import PlayIcon from "./icons/PlayIcon";
 import audios from "./audios";
+
+const Test = styled.div`
+  color: red;
+`
 
 const App = () => {
   const audioRef = useRef();
@@ -42,6 +47,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Test>Hello world!!!</Test>
       <img className="Song-Thumbnail" src={TetImg} alt="tet" />
       <h2 className="Song-Title">{audios[audioIndex].title}</h2>
       <p className="Singer">{audios[audioIndex].artist}</p>
