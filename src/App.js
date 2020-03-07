@@ -45,33 +45,17 @@ const App = () => {
 
   return (
     <div className="App">
-      <RowItem
-        isPlay={currentIdAudio === 0 ? isPlay : false}
-        currentTime={currentIdAudio === 0 ? currentTime : 0}
-        duration={duration}
-        songTile={audios[0].title}
-        idAudio={0}
-        handlePausePlayClick={handlePausePlayClick}
-        handleTimeSliderChange={handleTimeSliderChange}
-      />
-      <RowItem
-        isPlay={currentIdAudio === 1 ? isPlay : false}
-        currentTime={currentIdAudio === 1 ? currentTime : 0}
-        duration={duration}
-        songTile={audios[1].title}
-        idAudio={1}
-        handlePausePlayClick={handlePausePlayClick}
-        handleTimeSliderChange={handleTimeSliderChange}
-      />
-      <RowItem
-        isPlay={currentIdAudio === 2 ? isPlay : false}
-        currentTime={currentIdAudio === 2 ? currentTime : 0}
-        duration={duration}
-        songTile={audios[2].title}
-        idAudio={2}
-        handlePausePlayClick={handlePausePlayClick}
-        handleTimeSliderChange={handleTimeSliderChange}
-      />
+      {audios.map((audio, index) => (
+        <RowItem
+          isPlay={currentIdAudio === index ? isPlay : false}
+          currentTime={currentIdAudio === index ? currentTime : 0}
+          duration={duration}
+          songTile={audio.title}
+          idAudio={index}
+          handlePausePlayClick={handlePausePlayClick}
+          handleTimeSliderChange={handleTimeSliderChange}
+        />
+      ))}
       <audio
         ref={audioRef}
         src={audios[currentIdAudio].src}
