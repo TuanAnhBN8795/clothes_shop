@@ -10,12 +10,16 @@ const RowContainer = styled.div`
   align-items: center;
   justify-content: start;
   border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
   padding: 15px 10px;
 `;
 
 const SongName = styled.div`
+  width: 20%;
+  white-space: nowrap;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 `;
 
 const ControlBtnGroup = styled.div`
@@ -40,13 +44,14 @@ const RowItem = (
     currentTime,
     duration,
     songTile,
+    idAudio,
     handlePausePlayClick,
     handleTimeSliderChange,
   }) => {
   return (
     <RowContainer>
       <SongName>{songTile}</SongName>
-      <ControlBtnGroup onClick={handlePausePlayClick}>
+      <ControlBtnGroup onClick={() => handlePausePlayClick(idAudio)}>
         {isPlay
           ? <ControlBtn src={pauseIconSrc} alt="pause icon" />
           : <ControlBtn src={playIconSrc} alt="play icon"/>}
@@ -61,7 +66,8 @@ const RowItem = (
             track: {
               backgroundColor: "#e3e3e3",
               height: "4px",
-              cursor: "pointer"
+              cursor: "pointer",
+              "pointer-events": !isPlay && "none",
             },
             active: {
               backgroundColor: "#F1C40F",
