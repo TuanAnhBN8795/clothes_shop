@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 
 import pauseIconSrc from "../icons/pause-icon.png";
 import playIconSrc from "../icons/play-icon.png";
+import DownloadItem from  "./DownloadItem";
 
 const RowContainer = styled.div`
   display: flex;
@@ -84,6 +85,7 @@ const RowItem = (
           }}
         />
       </ProgressBar>
+      <DownloadItem type="MP3" isDisable={false}/>
     </RowContainer>
   );
 };
