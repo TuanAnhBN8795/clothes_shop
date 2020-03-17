@@ -6,7 +6,7 @@ import YoutubeModal from "../components/YoutubeModal";
 import SheetDemoModal from "../components/SheetDemoModal";
 
 const SheetMusicContent = styled.div`
-  padding: 20px 200px;
+  padding: 20px 100px;
   border-bottom: 1px solid #ccc;
 `;
 
