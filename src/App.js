@@ -4,6 +4,8 @@ import "./App.scss";
 import audios from "./audios";
 
 import RowItem from "./components/RowItem";
+import YoutubeModal from "./components/YoutubeModal";
+import DemoSheetModal from "./components/DemoSheetModal";
 
 const App = () => {
   const audioRef = useRef();
@@ -11,6 +13,8 @@ const App = () => {
   const [currentIdAudio, setCurrentIdAudio] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlay, setPlay] = useState(false);
+  const [isOpenYoutube, setOpenYoutube] = useState(false);
+  const [isOpenDemoSheet, setOpenDemoSheet] = useState(false);
 
   const handleLoadedData = () => {
     setDuration(audioRef.current.duration);
@@ -43,8 +47,34 @@ const App = () => {
     }
   };
 
+  const openYoutube = () => {
+    setOpenYoutube(true)
+  }
+
+  const closeYoutube = () => {
+    setOpenYoutube(false)
+  }
+
+  const openDemoSheet = () => {
+    setOpenDemoSheet(true)
+  }
+
+  const closeDemoSheet = () => {
+    setOpenDemoSheet(false)
+  }
+
   return (
     <div className="App">
+      <YoutubeModal
+        modalIsOpen={isOpenYoutube}
+        openModal={openYoutube}
+        closeModal={closeYoutube}
+      />
+      <DemoSheetModal
+        modalIsOpen={isOpenDemoSheet}
+        openModal={openDemoSheet}
+        closeModal={closeDemoSheet}
+      />
       {audios.map((audio, index) => (
         <RowItem
           isPlay={currentIdAudio === index ? isPlay : false}
