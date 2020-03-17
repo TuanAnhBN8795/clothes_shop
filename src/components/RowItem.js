@@ -29,7 +29,7 @@ const PlayMuicDemo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 const ControlBtnGroup = styled.div`
   margin-top: 2px;

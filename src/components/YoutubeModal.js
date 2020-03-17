@@ -7,10 +7,10 @@ const YoutubeModalContainer = styled.div`
 
 const ContentModal = styled(Modal)`
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  top: 60px;
+  left: 60px;
+  right: 60px;
+  bottom: 60px;
   background: rgb(255, 255, 255);
   overflow: auto;
   outline: none;
