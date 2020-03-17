@@ -71,6 +71,20 @@ const audios = [
     youtubeSrc: "https://www.youtube.com/embed/UdUf2ESe_ug",
     sheetDemoSrc: sheetDemo1,
   },
+  {
+    src: XuanOiOLaiChoi,
+    title: "Xuân Ơi Ở Lại Chơi",
+    price: 290000,
+    youtubeSrc: "https://www.youtube.com/embed/WUF0zmz3eXY",
+    sheetDemoSrc: sheetDemo3,
+  },
+  {
+    src: NgayXuanLongPhungSumVay,
+    title: "Ngày Xuân Long Phụng Sum Vầy",
+    price: 300000,
+    youtubeSrc: "https://www.youtube.com/embed/m1dRtxCy-sA",
+    sheetDemoSrc: sheetDemo4,
+  },
 ];
 
 export default audios;

@@ -1,8 +1,14 @@
 import React, { useState, useRef } from "react";
+import styled from 'styled-components/macro';
 
 import RowItem from "../components/RowItem";
 import YoutubeModal from "../components/YoutubeModal";
 import SheetDemoModal from "../components/SheetDemoModal";
+
+const SheetMusicContent = styled.div`
+  padding: 20px 200px;
+  border-bottom: 1px solid #ccc;
+`;
 
 const SheetMusicPage = ({ audios }) => {
   const audioRef = useRef();
@@ -76,19 +82,21 @@ const SheetMusicPage = ({ audios }) => {
         sheetDemoSrc={sheetDemoSrc}
         closeModal={closeSheetDemo}
       />
-      {audios.map((audio, index) => (
-        <RowItem
-          isPlay={currentIdAudio === index ? isPlay : false}
-          currentTime={currentIdAudio === index ? currentTime : 0}
-          duration={duration}
-          idAudio={index}
-          audioInfo={audio}
-          handlePausePlayClick={handlePausePlayClick}
-          handleTimeSliderChange={handleTimeSliderChange}
-          openYoutube={openYoutube}
-          openSheetDemo={openSheetDemo}
-        />
-      ))}
+      <SheetMusicContent>
+        {audios.map((audio, index) => (
+          <RowItem
+            isPlay={currentIdAudio === index ? isPlay : false}
+            currentTime={currentIdAudio === index ? currentTime : 0}
+            duration={duration}
+            idAudio={index}
+            audioInfo={audio}
+            handlePausePlayClick={handlePausePlayClick}
+            handleTimeSliderChange={handleTimeSliderChange}
+            openYoutube={openYoutube}
+            openSheetDemo={openSheetDemo}
+          />
+        ))}
+      </SheetMusicContent>
       <audio
         ref={audioRef}
         src={audios[currentIdAudio].src}
