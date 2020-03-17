@@ -24,7 +24,7 @@ const ContentModal = styled(Modal)`
     bottom: 0;
     height: 40vh;
   }
-`
+`;
 
 const YoutubeOpenBtn = styled.button`
   color: red;
@@ -49,7 +49,7 @@ const YoutubeCloseBtn = styled.button`
 const YoutubeFrame = styled.iframe`
   width: 100%;
   height: 100%;
-`
+`;
 
 const YoutubeModal = ({ modalIsOpen, openModal, closeModal }) => {
   return (
@@ -75,6 +75,6 @@ const YoutubeModal = ({ modalIsOpen, openModal, closeModal }) => {
       </ContentModal>
     </YoutubeModalContainer>
   )
-}
+};
 
 export default YoutubeModal;

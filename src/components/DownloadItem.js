@@ -28,6 +28,6 @@ const DownloadItem = ({ type, isDisable }) => {
       />
     </DownloadContainer>
   )
-}
+};
 
 export default DownloadItem;

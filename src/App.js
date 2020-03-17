@@ -84,6 +84,8 @@ const App = () => {
           idAudio={index}
           handlePausePlayClick={handlePausePlayClick}
           handleTimeSliderChange={handleTimeSliderChange}
+          isFree={audio.isFree}
+          price={audio.price}
         />
       ))}
       <audio

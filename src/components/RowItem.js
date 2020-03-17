@@ -5,6 +5,8 @@ import styled from 'styled-components/macro'
 import pauseIconSrc from "../icons/pause-icon.png";
 import playIconSrc from "../icons/play-icon.png";
 import DownloadItem from  "./DownloadItem";
+import BuyButton from "./BuyButton";
+import PriceTag from "./PriceTag";
 
 const RowContainer = styled.div`
   display: flex;
@@ -48,6 +50,8 @@ const RowItem = (
     idAudio,
     handlePausePlayClick,
     handleTimeSliderChange,
+    isFree,
+    price,
   }) => {
   return (
     <RowContainer>
@@ -86,6 +90,8 @@ const RowItem = (
         />
       </ProgressBar>
       <DownloadItem type="MP3" isDisable={false}/>
+      <BuyButton isFree={isFree}/>
+      <PriceTag price={price}/>
     </RowContainer>
   );
 };

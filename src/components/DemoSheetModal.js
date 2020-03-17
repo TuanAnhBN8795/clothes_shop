@@ -26,7 +26,7 @@ const ContentModal = styled(Modal)`
     bottom: 0;
     height: 40vh;
   }
-`
+`;
 
 const DemoSheetOpenBtn = styled.button`
   color: blue;
@@ -53,7 +53,7 @@ const DemoSheetContent = styled.img`
   height: auto;
   margin-left: 20%;
   margin-right: 20%;
-`
+`;
 
 const DemoSheetModal = ({ modalIsOpen, openModal, closeModal }) => {
   return (
