@@ -11,7 +11,7 @@ const ActionButton = styled.button`
   border: none;
   font-weight: 600;
   font-size: 14px;
-  min-width: 70px;
+  min-width: 80px;
 `;
 
 const BuyButton = ({ isFree }) => {

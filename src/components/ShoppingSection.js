@@ -5,10 +5,11 @@ import PriceTag from "./PriceTag";
 import BuyButton from "./BuyButton";
 
 const ShoppingSectionStyle = styled.div`
-  width: 10%;
+  min-width: 250px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 20px;
 `;
 
 const ShoppingSection = ({ price }) => {

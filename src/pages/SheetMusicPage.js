@@ -70,7 +70,6 @@ const SheetMusicPage = ({ audios }) => {
         modalIsOpen={isOpenYoutube}
         youtubeSrc={youtubeSrc}
         closeModal={closeYoutube}
-        closeModal={closeYoutube}
       />
       <SheetDemoModal
         modalIsOpen={isOpenSheetDemo}
