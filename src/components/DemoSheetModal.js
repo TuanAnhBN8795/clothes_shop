@@ -49,8 +49,8 @@ const DemoSheetCloseBtn = styled.button`
 `;
 
 const DemoSheetContent = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: auto;
   margin-left: 20%;
   margin-right: 20%;
 `
