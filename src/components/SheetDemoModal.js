@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import Modal from "react-modal";
 
-import imgSrc from "../images/img1.jpg";
-
-const DemoSheetModalContainer = styled.div`
+const SheetDemoModalContainer = styled.div`
 `;
 
 const ContentModal = styled(Modal)`
@@ -28,12 +26,7 @@ const ContentModal = styled(Modal)`
   }
 `;
 
-const DemoSheetOpenBtn = styled.button`
-  color: blue;
-  border: none;
-`;
-
-const DemoSheetCloseBtn = styled.button`
+const SheetDemoCloseBtn = styled.button`
   color: white;
   position: absolute;
   z-index: 999;
@@ -48,33 +41,28 @@ const DemoSheetCloseBtn = styled.button`
   background-color: red;
 `;
 
-const DemoSheetContent = styled.img`
+const SheetDemoContent = styled.img`
   width: 60%;
   height: auto;
   margin-left: 20%;
   margin-right: 20%;
 `;
 
-const DemoSheetModal = ({ modalIsOpen, openModal, closeModal }) => {
+const SheetDemoModal = ({ modalIsOpen, sheetDemoSrc, closeModal }) => {
   return (
-    <DemoSheetModalContainer>
-      <DemoSheetOpenBtn
-        onClick={openModal}
-      >
-        Open DemoSheet
-      </DemoSheetOpenBtn>
+    <SheetDemoModalContainer>
       <ContentModal
         isOpen={modalIsOpen}
-        contentLabel="DemoSheet Modal"
+        contentLabel="SheetDemo Modal"
         onRequestClose={closeModal}
       >
-        <DemoSheetCloseBtn onClick={closeModal}>X</DemoSheetCloseBtn>
-        <DemoSheetContent
-          src={imgSrc}
+        <SheetDemoCloseBtn onClick={closeModal}>X</SheetDemoCloseBtn>
+        <SheetDemoContent
+          src={sheetDemoSrc}
         />
       </ContentModal>
-    </DemoSheetModalContainer>
+    </SheetDemoModalContainer>
   )
 }
 
-export default DemoSheetModal;
+export default SheetDemoModal;

@@ -5,8 +5,8 @@ import styled from 'styled-components/macro'
 import pauseIconSrc from "../icons/pause-icon.png";
 import playIconSrc from "../icons/play-icon.png";
 import DownloadItem from  "./DownloadItem";
-import BuyButton from "./BuyButton";
-import PriceTag from "./PriceTag";
+import ControlButtonGroup from "./ControlButtonGroup";
+import ShoppingSection from "./ShoppingSection";
 
 const RowContainer = styled.div`
   display: flex;
@@ -46,16 +46,17 @@ const RowItem = (
     isPlay,
     currentTime,
     duration,
-    songTile,
     idAudio,
+    audioInfo,
     handlePausePlayClick,
     handleTimeSliderChange,
-    isFree,
-    price,
+    openYoutube,
+    openSheetDemo,
   }) => {
+  const { title, price, youtubeSrc, sheetDemoSrc } = audioInfo;
   return (
     <RowContainer>
-      <SongName>{songTile}</SongName>
+      <SongName>{title}</SongName>
       <ControlBtnGroup onClick={() => handlePausePlayClick(idAudio)}>
         {isPlay
           ? <ControlBtn src={pauseIconSrc} alt="pause icon" />
@@ -90,8 +91,13 @@ const RowItem = (
         />
       </ProgressBar>
       <DownloadItem type="MP3" isDisable={false}/>
-      <BuyButton isFree={isFree}/>
-      <PriceTag price={price}/>
+      <ControlButtonGroup
+        openYoutube={openYoutube}
+        youtubeSrc={youtubeSrc}
+        openSheetDemo={openSheetDemo}
+        sheetDemoSrc={sheetDemoSrc}
+      />
+      <ShoppingSection price={price}/>
     </RowContainer>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import RowItem from "../components/RowItem";
 import YoutubeModal from "../components/YoutubeModal";
-import DemoSheetModal from "../components/DemoSheetModal";
+import SheetDemoModal from "../components/SheetDemoModal";
 
 const SheetMusicPage = ({ audios }) => {
   const audioRef = useRef();
@@ -11,7 +11,9 @@ const SheetMusicPage = ({ audios }) => {
   const [duration, setDuration] = useState(0);
   const [isPlay, setPlay] = useState(false);
   const [isOpenYoutube, setOpenYoutube] = useState(false);
-  const [isOpenDemoSheet, setOpenDemoSheet] = useState(false);
+  const [youtubeSrc, setYoutubeSrc] = useState('');
+  const [isOpenSheetDemo, setOpenSheetDemo] = useState(false);
+  const [sheetDemoSrc, setSheetDemoSrc] = useState('');
 
   const handleLoadedData = () => {
     setDuration(audioRef.current.duration);
@@ -44,45 +46,48 @@ const SheetMusicPage = ({ audios }) => {
     }
   };
 
-  const openYoutube = () => {
-    setOpenYoutube(true)
+  const openYoutube = (src) => {
+    setYoutubeSrc(src);
+    setOpenYoutube(true);
   };
 
   const closeYoutube = () => {
-    setOpenYoutube(false)
+    setOpenYoutube(false);
   };
 
-  const openDemoSheet = () => {
-    setOpenDemoSheet(true)
+  const openSheetDemo = (src) => {
+    setSheetDemoSrc(src);
+    setOpenSheetDemo(true);
   };
 
-  const closeDemoSheet = () => {
-    setOpenDemoSheet(false)
+  const closeSheetDemo = () => {
+    setOpenSheetDemo(false);
   };
 
   return (
     <div>
       <YoutubeModal
         modalIsOpen={isOpenYoutube}
-        openModal={openYoutube}
+        youtubeSrc={youtubeSrc}
+        closeModal={closeYoutube}
         closeModal={closeYoutube}
       />
-      <DemoSheetModal
-        modalIsOpen={isOpenDemoSheet}
-        openModal={openDemoSheet}
-        closeModal={closeDemoSheet}
+      <SheetDemoModal
+        modalIsOpen={isOpenSheetDemo}
+        sheetDemoSrc={sheetDemoSrc}
+        closeModal={closeSheetDemo}
       />
       {audios.map((audio, index) => (
         <RowItem
           isPlay={currentIdAudio === index ? isPlay : false}
           currentTime={currentIdAudio === index ? currentTime : 0}
           duration={duration}
-          songTile={audio.title}
           idAudio={index}
+          audioInfo={audio}
           handlePausePlayClick={handlePausePlayClick}
           handleTimeSliderChange={handleTimeSliderChange}
-          isFree={audio.isFree}
-          price={audio.price}
+          openYoutube={openYoutube}
+          openSheetDemo={openSheetDemo}
         />
       ))}
       <audio

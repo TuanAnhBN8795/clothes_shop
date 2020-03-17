@@ -26,11 +26,6 @@ const ContentModal = styled(Modal)`
   }
 `;
 
-const YoutubeOpenBtn = styled.button`
-  color: red;
-  border: none;
-`;
-
 const YoutubeCloseBtn = styled.button`
   color: white;
   position: absolute;
@@ -51,14 +46,9 @@ const YoutubeFrame = styled.iframe`
   height: 100%;
 `;
 
-const YoutubeModal = ({ modalIsOpen, openModal, closeModal }) => {
+const YoutubeModal = ({ modalIsOpen, closeModal, youtubeSrc }) => {
   return (
     <YoutubeModalContainer>
-      <YoutubeOpenBtn
-        onClick={openModal}
-      >
-        Open Youtube
-      </YoutubeOpenBtn>
       <ContentModal
         isOpen={modalIsOpen}
         contentLabel="Youtube Modal"
@@ -66,7 +56,7 @@ const YoutubeModal = ({ modalIsOpen, openModal, closeModal }) => {
       >
         <YoutubeCloseBtn onClick={closeModal}>X</YoutubeCloseBtn>
         <YoutubeFrame
-          src='https://www.youtube.com/embed/Odg1BIfq60E'
+          src={youtubeSrc}
           frameBorder='0'
           allow='autoplay; encrypted-media'
           allowFullScreen
