@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+import { postsBySubreddit, selectedSubreddit } from './redditApiReducer';
+
 const testReducer = (state, action) => ({
   test: 'test-data',
   book: 'book-data',
@@ -7,7 +9,9 @@ const testReducer = (state, action) => ({
 });
 
 const rootReducer = combineReducers({
-  testReducer
+  testReducer,
+  postsBySubreddit,
+  selectedSubreddit,
 });
 
 export default rootReducer;

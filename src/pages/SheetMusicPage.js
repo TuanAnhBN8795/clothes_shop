@@ -85,6 +85,7 @@ const SheetMusicPage = ({ audios }) => {
       <SheetMusicContent>
         {audios.map((audio, index) => (
           <RowItem
+            key={index}
             isPlay={currentIdAudio === index ? isPlay : false}
             currentTime={currentIdAudio === index ? currentTime : 0}
             duration={duration}
