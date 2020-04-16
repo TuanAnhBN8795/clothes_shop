@@ -3,6 +3,7 @@ import "./App.scss";
 import audios from "./audios";
 
 import SheetMusicPage from "./pages/SheetMusicPage";
+import PostPage from './pages/PostPage';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <SheetMusicPage
         audios={audios}
       />
+      <PostPage />
     </div>
   );
 };
