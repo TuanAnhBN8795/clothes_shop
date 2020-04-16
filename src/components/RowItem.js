@@ -80,7 +80,7 @@ const RowItem = (
                 backgroundColor: "#e3e3e3",
                 height: "4px",
                 cursor: "pointer",
-                "pointer-events": !isPlay && "none",
+                pointerEvents: !isPlay && "none",
               },
               active: {
                 backgroundColor: "#F1C40F",
