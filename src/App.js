@@ -1,18 +1,15 @@
 import React from "react";
-import "./App.scss";
-import audios from "./audios";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import SheetMusicPage from "./pages/SheetMusicPage";
 import PostPage from './pages/PostPage';
 
 const App = () => {
   return (
-    <div className="App">
-      <SheetMusicPage
-        audios={audios}
-      />
-      <PostPage />
-    </div>
+    <Router>
+      <Route exact path="/" component={SheetMusicPage} />
+      <Route exact path="/posts" component={PostPage} />
+    </Router>
   );
 };
 

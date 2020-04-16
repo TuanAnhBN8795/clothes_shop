@@ -4,13 +4,14 @@ import styled from 'styled-components/macro';
 import RowItem from "../components/RowItem";
 import YoutubeModal from "../components/YoutubeModal";
 import SheetDemoModal from "../components/SheetDemoModal";
+import audios from "../audios";
 
 const SheetMusicContent = styled.div`
   padding: 20px 100px;
   border-bottom: 1px solid #ccc;
 `;
 
-const SheetMusicPage = ({ audios }) => {
+const SheetMusicPage = () => {
   const audioRef = useRef();
   const [currentTime, setCurrentTime] = useState(0);
   const [currentIdAudio, setCurrentIdAudio] = useState(0);
