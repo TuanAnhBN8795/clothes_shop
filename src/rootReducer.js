@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
 
 import { postsBySubreddit, selectedSubreddit } from './redditApiReducer';
 
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   testReducer,
   postsBySubreddit,
   selectedSubreddit,
+  form: reduxFormReducer,
 });
 
 export default rootReducer;

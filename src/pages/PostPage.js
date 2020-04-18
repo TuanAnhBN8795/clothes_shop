@@ -8,7 +8,7 @@ import {
 import Picker from '../components/Picker'
 import Posts from '../components/Posts'
 
-class AsyncApp extends Component {
+class PostPage extends Component {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
@@ -88,4 +88,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(AsyncApp)
+export default connect(mapStateToProps)(PostPage)
