@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch'
+import axios from 'axios';
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
@@ -38,9 +38,9 @@ function receivePosts(subreddit, json) {
 function fetchPosts(subreddit) {
   return dispatch => {
     dispatch(requestPosts(subreddit))
-    return fetch(`https://www.reddit.com/r/${subreddit}.json`)
-      .then(response => response.json())
-      .then(json => dispatch(receivePosts(subreddit, json)))
+    return axios.get(`https://www.reddit.com/r/${subreddit}.json`)
+      .then(response => response.data)
+      .then(data => dispatch(receivePosts(subreddit, data)))
   }
 }
 
