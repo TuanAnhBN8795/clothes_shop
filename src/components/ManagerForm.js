@@ -1,84 +1,41 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+import FieldFileInput from '../components/FieldFileInput';
+
 const ManagerForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>First Name</label>
+        <label>Music name</label>
         <div>
           <Field
-            name="firstName"
+            name="title"
             component="input"
             type="text"
-            placeholder="First Name"
+            placeholder="Title"
           />
         </div>
       </div>
       <div>
-        <label>Last Name</label>
+        <label>Music name</label>
         <div>
           <Field
-            name="lastName"
+            name="artist"
             component="input"
             type="text"
-            placeholder="Last Name"
+            placeholder="Artist"
           />
         </div>
       </div>
       <div>
-        <label>Email</label>
+        <label>Music Input</label>
         <div>
           <Field
-            name="email"
-            component="input"
-            type="email"
-            placeholder="Email"
+            name="music"
+            component={FieldFileInput}
           />
-        </div>
-      </div>
-      <div>
-        <label>Sex</label>
-        <div>
-          <label>
-            <Field name="sex" component="input" type="radio" value="male" />
-            {' '}
-            Male
-          </label>
-          <label>
-            <Field name="sex" component="input" type="radio" value="female" />
-            {' '}
-            Female
-          </label>
-        </div>
-      </div>
-      <div>
-        <label>Favorite Color</label>
-        <div>
-          <Field name="favoriteColor" component="select">
-            <option />
-            <option value="ff0000">Red</option>
-            <option value="00ff00">Green</option>
-            <option value="0000ff">Blue</option>
-          </Field>
-        </div>
-      </div>
-      <div>
-        <label htmlFor="employed">Employed</label>
-        <div>
-          <Field
-            name="employed"
-            id="employed"
-            component="input"
-            type="checkbox"
-          />
-        </div>
-      </div>
-      <div>
-        <label>Notes</label>
-        <div>
-          <Field name="notes" component="textarea" />
         </div>
       </div>
       <div>

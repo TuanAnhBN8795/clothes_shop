@@ -7,6 +7,7 @@ export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT'
 
 export const REQUEST_MUSICS = 'REQUEST_MUSICS'
 export const RECEIVE_MUSICS = 'RECEIVE_MUSICS'
+export const ADD_NEW_MUSIC = 'ADD_NEW_MUSIC'
 
 export function selectSubreddit(subreddit) {
   return {
@@ -58,6 +59,29 @@ export function fetchMusics() {
         type: RECEIVE_MUSICS,
         data
       }))
+  }
+}
+
+export function addNewMusic(title, artist, music) {
+  return dispatch => {
+    dispatch({
+      type: ADD_NEW_MUSIC,
+      title,
+      artist,
+      music,
+    });
+    let formData = new FormData()
+
+    formData.append('title', title)
+    formData.append('artist', artist)
+    formData.append('music', music)
+    return axios.post(`https://music-serer-api-1310.herokuapp.com/music`, formData)
+      .then(response => {
+        console.log('response =====>', response)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 }
 

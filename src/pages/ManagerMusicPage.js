@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import ManagerMusicForm from '../components/ManagerForm';
+import { addNewMusic } from '../action';
 
-const ManagerMusicPage = () => {
-  const handleSubmit = values => {
-    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+class ManagerMusicPage extends Component{
+  constructor(props) {
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(values) {
+    console.log('values =====>', values);
+    const { title, artist, music } = values;
+    this.props.dispatch(addNewMusic(title, artist, music));
   };
 
-  return (
-    <div>
-      <h3>Manager Music</h3>
-      <ManagerMusicForm onSubmit={handleSubmit} />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <h3>Manager Music</h3>
+        <ManagerMusicForm onSubmit={this.handleSubmit} />
+      </div>
+    );
+  }
+}
 
-export default ManagerMusicPage;
+export default connect()(ManagerMusicPage);
