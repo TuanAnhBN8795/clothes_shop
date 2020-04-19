@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FieldFileInput  = props => {
+const PdfFileInput  = props => {
   const handleOnChange = (e) => {
     e.preventDefault();
     const { input: { onChange } } = props;
@@ -10,10 +10,10 @@ const FieldFileInput  = props => {
   return (
     <input
       type='file'
-      accept='audio/*'
+      accept='application/pdf'
       onChange={handleOnChange}
     />
   )
 };
 
-export default FieldFileInput;
+export default PdfFileInput;
