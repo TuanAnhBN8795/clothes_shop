@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import {
   selectSubreddit,
   fetchPostsIfNeeded,
-  invalidateSubreddit
+  invalidateSubreddit,
+  fetchMusics,
 } from '../action'
 import Picker from '../components/Picker'
 import Posts from '../components/Posts'
@@ -25,6 +26,7 @@ class PostPage extends Component {
       const { dispatch, selectedSubreddit } = this.props
       dispatch(fetchPostsIfNeeded(selectedSubreddit))
     }
+    this.props.dispatch(fetchMusics())
   }
 
   handleChange(nextSubreddit) {

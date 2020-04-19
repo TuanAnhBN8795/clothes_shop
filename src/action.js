@@ -5,6 +5,9 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT'
 export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT'
 
+export const REQUEST_MUSICS = 'REQUEST_MUSICS'
+export const RECEIVE_MUSICS = 'RECEIVE_MUSICS'
+
 export function selectSubreddit(subreddit) {
   return {
     type: SELECT_SUBREDDIT,
@@ -41,6 +44,20 @@ function fetchPosts(subreddit) {
     return axios.get(`https://www.reddit.com/r/${subreddit}.json`)
       .then(response => response.data)
       .then(data => dispatch(receivePosts(subreddit, data)))
+  }
+}
+
+export function fetchMusics() {
+  return dispatch => {
+    dispatch({
+      type: REQUEST_MUSICS
+    });
+    return axios.get(`https://music-serer-api-1310.herokuapp.com/music`)
+      .then(response => response.data)
+      .then(data => dispatch({
+        type: RECEIVE_MUSICS,
+        data
+      }))
   }
 }
 
